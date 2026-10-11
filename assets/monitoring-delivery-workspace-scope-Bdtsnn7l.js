@@ -1,0 +1,1 @@
+function n(e){const r=e?.trim();return r||null}function s(e){return e.sessionIsLegalPerson?n(e.sessionWorkspaceId):n(e.selectedWorkspaceId)}function o(e){return s(e)}function a(e){return s(e)}function i(e){return n(e)}function t(e){return e.sessionIsLegalPerson?n(e.sessionWorkspaceId):null}function d(e,r){return s(e)!==s(r)}export{a,i as b,t as c,d,o as m};

@@ -1,0 +1,1 @@
+function t(){return"refresh-accessible-lists"}function o(){return"setExternalSessionWorkspace"}function r(e,n){return n.some(s=>s.id===e)?"setSessionWorkspace":"setExternalSessionWorkspace"}function a(e){return"/app/dashboard"}function i(e){return"dashboard"}export{o as a,a as b,t as c,r as i,i as s};

@@ -1,0 +1,1 @@
+function e(r){return r?.trim()||null}function t(r){return{sessionWorkspaceId:e(r)}}function i(r,n){const s=e(n);if(!s)return r;const o=r;return o.sessionWorkspaceId===s?o:{...r,sessionWorkspaceId:s}}export{t as i,i as w};

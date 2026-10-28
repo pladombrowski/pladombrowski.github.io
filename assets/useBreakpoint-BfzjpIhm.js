@@ -1,1 +1,0 @@
-import{o as s,O as i,a as r}from"./vue-DxcsmQvU.js";function u(a="(max-width: 1023px)"){const t=r(!1);let e=null;const n=o=>{t.value=o.matches};return s(()=>{e=window.matchMedia(a),n(e),e.addEventListener("change",n)}),i(()=>{e?.removeEventListener("change",n)}),{isMobile:t}}export{u};

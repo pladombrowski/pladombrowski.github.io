@@ -27,7 +27,7 @@ var CONFIG_BY_FLAVOR = {
   },
 }
 
-var flavor = new URL(self.location.href).searchParams.get('flavor') || 'hsr'
+var flavor = new URL(self.location.href).searchParams.get('flavor') || 'haila'
 var config = CONFIG_BY_FLAVOR[flavor]
 
 if (config) {

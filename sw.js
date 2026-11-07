@@ -7,8 +7,12 @@
  *
  * Registrado apenas em producao e fora de automacao (ver
  * `src/services/offline-shell.service.ts`).
+ *
+ * Bump `CACHE_NAME` quando mudar a politica de cache: o `activate` apaga todos
+ * os caches com nome diferente. Sem o bump, assets de deploys anteriores ficam
+ * vivos para sempre e um shell antigo continua rodando em vez de falhar.
  */
-const CACHE_NAME = 'haila-shell-v1'
+const CACHE_NAME = 'haila-shell-v2'
 const SHELL_ASSETS = ['/', '/index.html', '/favicon.svg', '/manifest.webmanifest']
 const STATIC_PREFIXES = ['/assets/', '/icons/']
 
@@ -30,7 +34,9 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(SHELL_ASSETS))
+      .then((cache) =>
+        cache.addAll(SHELL_ASSETS.map((asset) => new Request(asset, { cache: 'no-store' }))),
+      )
       .then(() => self.skipWaiting()),
   )
 })
@@ -60,8 +66,12 @@ self.addEventListener('fetch', (event) => {
   if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/file-upload/')) return
 
   if (request.mode === 'navigate') {
+    // `no-store` ignora o cache HTTP do browser (GitHub Pages manda
+    // `max-age=600` no HTML). Sem isso, um deploy recente ainda pode bootar
+    // o shell anterior por ate 10 min; os chunks antigos seguem no cache e a
+    // app roda uma build velha em vez de recarregar.
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: 'no-store' })
         .then((response) => {
           cachePut('/index.html', response)
           return response

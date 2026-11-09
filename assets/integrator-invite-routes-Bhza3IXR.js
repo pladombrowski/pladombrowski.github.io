@@ -1,0 +1,1 @@
+function e(t){return{name:"integrator-client-section",params:{workspaceId:t,section:"invites"}}}function i(t){return{name:"integrator-cliente-invite-new",params:{workspaceId:t}}}function a(t,n){return{name:"integrator-cliente-invite-edit",params:{workspaceId:t,inviteId:n}}}export{a,e as b,i};

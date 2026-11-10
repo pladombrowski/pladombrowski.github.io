@@ -1,0 +1,7 @@
+import{a3 as f,N as d}from"./index-DzwD-3qR.js";const u={endpoint:d.hailaJavaGraphqlEndpoint,timeoutMs:3e4},p=`
+  mutation SetGeneralPreferenceSecure($input: ProdSetGeneralPreferenceJsonV3PInput) {
+    prod_set_general_preference_json_v3(p_input: $input) {
+      json
+    }
+  }
+`;function o(e){return!e||typeof e!="object"||Array.isArray(e)?null:e}function g(e){if(Array.isArray(e)){if(e.length===0)return null;const s=o(e[0]);return s?s.json??null:null}const n=o(e);return n?n.json??n:null}function a(e){return typeof e=="string"?e.trim():""}const _={async setGeneralPreference(e){const n=e.referenceOf??"workspace",s=e.idReferenceOf.trim();if(!e.slug.trim())throw new Error("slug is required");if(!s)throw new Error("idReferenceOf is required");const i=await f(p,{input:{id:e.id?.trim()||null,slug:e.slug.trim(),payload:e.payload??{},name:e.name?.trim()||null,referenceOf:n,idReferenceOf:s,valueType:e.valueType?.trim()||"json",sessionWorkspaceId:e.sessionWorkspaceId?.trim()||null}},u),r=o(g(i.prod_set_general_preference_json_v3));if(!r)throw new Error("Resposta invalida ao salvar preferencia");if(r.success!==!0){const c=Array.isArray(r.errorMessages)?r.errorMessages.map(l=>String(l)).filter(Boolean):[];throw new Error(a(r.message)||c[0]||"Falha ao salvar preferencia")}const t=a(r.id);if(!t)throw new Error("Preferencia salva sem identificador");return{id:t,generalPreferenceId:a(r.generalPreferenceId)||null,referenceOf:n,idReferenceOf:s,workspaceId:a(r.workspaceId)||null}}};export{_ as g};

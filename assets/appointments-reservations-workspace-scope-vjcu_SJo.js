@@ -1,0 +1,1 @@
+function r(e){const s=e?.trim();return s||null}function t(e){return r(e)}function n(e){return r(e)}function i(e){return t(e)}function o(e){return n(e)}function c(e){return n(e)}function a(e){return r(e.unitWorkspaceId)??n(e.sessionWorkspaceId)}export{a,i as c,o as e,c as r,n as s};

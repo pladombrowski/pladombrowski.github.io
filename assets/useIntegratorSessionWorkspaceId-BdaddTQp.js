@@ -1,1 +1,0 @@
-import{u as s}from"./integrator.store-D_dSWDjA.js";import{a as e}from"./index-ChkHWvvR.js";import{i as t}from"./communications-workspace-scope-BL_328SU.js";import{D as a}from"./vue-DZfJEasy.js";function u(){const o=s(),r=e();return a(()=>o.sessionWorkspaceId?.trim()||t(r.sessionWorkspaceId)||null)}export{u};

@@ -12,7 +12,7 @@
  * os caches com nome diferente. Sem o bump, assets de deploys anteriores ficam
  * vivos para sempre e um shell antigo continua rodando em vez de falhar.
  */
-const CACHE_NAME = 'haila-shell-v2'
+const CACHE_NAME = 'haila-shell-v3'
 const SHELL_ASSETS = ['/', '/index.html', '/favicon.svg', '/manifest.webmanifest']
 const STATIC_PREFIXES = ['/assets/', '/icons/']
 

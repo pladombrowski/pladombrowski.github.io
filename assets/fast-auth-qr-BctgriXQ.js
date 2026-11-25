@@ -1,1 +1,0 @@
-import{r as i}from"./qr-code-CJmjmCVM.js";function o(r){const n=r.trim();if(n==="")return"";const t=n.split("-");return t.length<4?t.join(""):t.slice(0,4).join("")}function a(r){return i(r,{pixelSize:440,margin:2})}export{o as b,a as r};

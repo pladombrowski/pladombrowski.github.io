@@ -1,0 +1,1 @@
+/* empty css             */import{M as o,j as t,y as n,v as r,d as s}from"./vue-Uf6PQK4d.js";import"./vendor-CZKL-fIY.js";const a={class:"main-shell"},u=o({__name:"MainLayout",setup(c){return(_,i)=>{const e=r("router-view");return s(),t("div",a,[n(e)])}}});export{u as default};
